@@ -1,6 +1,10 @@
 <h1>NEW USER</h1>
 <br />
 <!--
+
+
+HTML Basic Form
+
 <form action="/users" method="post" accept-charset="UTF-8">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <label for="user[username]">Name</label>
@@ -11,7 +15,10 @@
     <input name="user[password]" type="password">
     <input name="submit" type="submit">
 </form>
--->
+
+
+Railsy Form
+
 <%= form_tag("/users", method: "post") do %>
     <%= label_tag(:username, "Name") %>
     <%= text_field_tag(:username) %>
@@ -21,3 +28,17 @@
     <%= password_field_tag(:password) %>
     <%= submit_tag("Add") %>
 <% end %>
+-->
+
+
+<!-- Rails-ier Form -->
+
+<%= form_for @user do |f| %>
+    <%= f.label "Username: "%>
+    <%= f.text_field :username %>
+    <%= f.label "Email: "%>
+    <%= f.text_field :email %>
+    <%= f.label "Password: "%>
+    <%= f.password_field :password %>
+    <%= f.submit "Create" %>
+  <% end %>
