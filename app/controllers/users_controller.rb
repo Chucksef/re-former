@@ -3,6 +3,14 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def index
+
+  end
+
+  def show
+    @user = User.find(params[:id])
+  end
+
   def create
 
     # @user = User.new(username: params[:username], email: params[:email], password: params[:password])
@@ -13,6 +21,10 @@ class UsersController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @user = User.find(params[:id])
   end
 
   private def user_params
